@@ -22,6 +22,24 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Authentication System (Ben)
+
+The authentication system uses Supabase Auth. See [AUTH_README.md](./AUTH_README.md) for documentation including:
+
+- API endpoints for signup, signin, signout
+- TypeScript types and interfaces
+- Protected route patterns
+- Testing examples with cURL
+- Frontend integration examples
+
+**Quick test:**
+```bash
+# Test signup
+curl -X POST http://localhost:4200/api/auth/signup \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com","password":"password123","fullName":"Test User"}'
+```
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
