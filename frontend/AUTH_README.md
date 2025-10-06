@@ -22,16 +22,11 @@ src/
 
 ## Setup
 
-To make this work in development you wil need to set up a supabase project and add these to your `.env.local`:  
+add these to your `.env.local`:  
 Project URL  
 Anon (public) key  
 Service role key  
 These can be found in Settings -> Data API and Settings -> API Keys
-
-Note that email confirmation is enabled by default, so you will need to
-either turn this off in the supabase project settings, or use your own email that you can confirm.
-
-Another option is to create a shared project that we can use
 
 ```bash
 # Supabase Configuration
