@@ -42,7 +42,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<AuthRespo
       message: 'Authentication successful',
       user: {
         id: data.user.id,
-        email: data.user.email!,  // ! means we know it's not null here
+        email: data.user.email!,
         fullName: data.user.user_metadata?.full_name || null
       },
       session: {

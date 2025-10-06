@@ -55,7 +55,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<AuthRespo
       message: 'User created successfully',
       user: {
         id: data.user.id,
-        email: data.user.email!,  // ! tells TypeScript "I know this isn't null"
+        email: data.user.email!,
         emailConfirmed: data.user.email_confirmed_at !== null
       }
     }, { 
