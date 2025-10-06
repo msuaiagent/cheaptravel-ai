@@ -16,7 +16,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<AuthRespo
       )
     }
 
-    const { supabase, response } = createClient(request)
+    const { supabase } = await createClient(request)
 
     // Sign in the user
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -50,7 +50,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<AuthRespo
         refreshToken: data.session!.refresh_token,
         expiresAt: data.session?.expires_at
       }
-    }, { status: 200 })
+    }, { 
+      status: 200,
+    })
 
   } catch (error) {
     console.error('Signin error:', error)

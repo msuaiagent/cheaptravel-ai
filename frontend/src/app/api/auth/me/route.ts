@@ -6,7 +6,7 @@ import { AuthUser, AuthError } from '@/types/auth'
 
 export async function GET(request: NextRequest): Promise<NextResponse<{ user: AuthUser } | AuthError>> {
   try {
-    const { supabase } = createClient(request)
+    const { supabase } = await createClient(request)
 
     // Get the current user
     // Note: supabase.auth.getUser() retrieves the user based on the access token in the request cookies

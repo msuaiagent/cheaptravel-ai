@@ -6,7 +6,7 @@ import { AuthError } from '@/types/auth'
 
 export async function POST(request: NextRequest): Promise<NextResponse<{ message: string } | AuthError>> {
   try {
-    const { supabase, response } = createClient(request)
+    const { supabase } = await createClient(request)
 
     // Sign out the user
     const { error } = await supabase.auth.signOut()
@@ -20,7 +20,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<{ message
 
     return NextResponse.json({
       message: 'Signed out successfully'
-    }, { status: 200 })
+    }, { 
+      status: 200,
+    })
 
   } catch (error) {
     console.error('Signout error:', error)

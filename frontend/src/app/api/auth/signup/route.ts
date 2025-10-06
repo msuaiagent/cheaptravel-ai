@@ -24,7 +24,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<AuthRespo
       )
     }
 
-    const { supabase, response } = createClient(request)
+    const { supabase } = await createClient(request)
 
     // Sign up the user
     const { data, error } = await supabase.auth.signUp({
@@ -58,7 +58,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<AuthRespo
         email: data.user.email!,  // ! tells TypeScript "I know this isn't null"
         emailConfirmed: data.user.email_confirmed_at !== null
       }
-    }, { status: 201 })
+    }, { 
+      status: 201
+    })
 
   } catch (error) {
     console.error('Signup error:', error)

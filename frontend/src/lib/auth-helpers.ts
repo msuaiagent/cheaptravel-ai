@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/server'
 
 export async function getAuthenticatedUser(request: NextRequest) {
   try {
-    const { supabase } = createClient(request)
+    const { supabase } = await createClient(request)
     const { data: { user }, error } = await supabase.auth.getUser()
     
     if (error || !user) {
