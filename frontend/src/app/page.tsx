@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import DestinationSearch from "./components/DestinationSearch";
+import Link from "next/link";
 
 export default function Home() {
   const [destinationsstate, setDestinations] = useState<any[]>([]);
@@ -42,9 +43,10 @@ export default function Home() {
         ) : (
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {destinationsstate.map((dest) => (
-              <div
+              <Link
                 key={dest.id}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-md transition overflow-hidden"
+                href={`/budget?location=${encodeURIComponent(`${dest.name}, ${dest.country}`)}`}
+                className="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-md transition hover:scale-103 overflow-hidden"
               >
                 {dest.image && (
                   <Image
@@ -64,7 +66,7 @@ export default function Home() {
                     {dest.country}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
